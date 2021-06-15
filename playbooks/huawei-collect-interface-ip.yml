@@ -2,7 +2,7 @@
 ### COLLECT IP ADRESSES INTERFACES TO CREATE A VAR FILES - João Vitor Costa Medeiros
 
 - name: Collect IP Addresses - HUAWEI AR1220 Routers
-  hosts: SC0019RA1
+  hosts: routers_huawei
   gather_facts: false
 
   tasks:
@@ -13,16 +13,18 @@
     - name: Get Interfaces Variables with IPADDR filter module
       set_fact:
         Loopback0: "{{ all_ipv4_addresses.LoopBack0 }}"
-	Loopback0withFilter: "{{ all_ipv4_addresses.LoopBack0 | ipaddr('address') }}"
-	Loopback0subnet: "{{ all_ipv4_addresses.LoopBack0 | ipaddr('subnet') }}"
-        GigabitEthernet0_0_0_10: "{{ all_ipv4_addresses['GigabitEthernet0/0/0.10'] | ipaddr('address') }}"
-        GigabitEthernet0_0_0_20: "{{ all_ipv4_addresses['GigabitEthernet0/0/0.20'] | ipaddr('address') }}"
-        GigabitEthernet0_0_0_590: "{{ all_ipv4_addresses['GigabitEthernet0/0/0.590'] | ipaddr('address') }}"
-        GigabitEthernet0_0_0_759: "{{ all_ipv4_addresses['GigabitEthernet0/0/0.759'] | ipaddr('address') }}"
+        Loopback0Address: "{{ all_ipv4_addresses.LoopBack0 | ipaddr('address') }}"
+        Loopback0Prefix: "{{ all_ipv4_addresses.LoopBack0 | ipaddr('prefix') }}"
+        Vlan10: "{{ all_ipv4_addresses['GigabitEthernet0/0/0.10'] | ipaddr('address') }}"
+        Vlan10Network: "{{ all_ipv4_addresses['GigabitEthernet0/0/0.10'] | ipaddr('network') }}"
+        Vlan10Prefix: "{{ all_ipv4_addresses['GigabitEthernet0/0/0.10'] | ipaddr('prefix') }}"
+        Vlan10Netmask: "{{ all_ipv4_addresses['GigabitEthernet0/0/0.10'] | ipaddr('netmask') }}"
+        Vlan10LastUsable: "{{ all_ipv4_addresses['GigabitEthernet0/0/0.10'] | ipaddr('last_usable') }}"
+        Vlan10Broadcast: "{{ all_ipv4_addresses['GigabitEthernet0/0/0.10'] | ipaddr('broadcast') }}"
 
     - name: Change variables in the Jinja file and Save it.
       template:
-        src: /mnt/c/model.txt.j2
+        src: ../model.txt.j2
         dest: /mnt/c/{{ inventory_hostname }}.txt
         owner: root
         group: root

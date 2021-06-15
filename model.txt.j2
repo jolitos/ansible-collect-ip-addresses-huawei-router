@@ -1,7 +1,9 @@
 Loopback0: {{ Loopback0 }}
-Loopback0: {{ Loopback0withFilter }}
-Loopback0: {{ Loopback0subnet }}
-GE0/0/0.10: {{ GigabitEthernet0_0_0_10 }}
-GE0/0/0.20: {{ GigabitEthernet0_0_0_20 }}
-GE0/0/0.590: {{ GigabitEthernet0_0_0_590 }}
-GE0/0/0.759: {{ GigabitEthernet0_0_0_759 }}
+Loopback0 IP: {{ Loopback0Address }}
+Loopback0 Prefix: {{ Loopback0Prefix }}
+GE0/0/0.10 Address: {{ Vlan10 }}
+GE0/0/0.10 Network: {{ Vlan10Network }}
+GE0/0/0.10 Network: {{ Vlan10Prefix }}
+GE0/0/0.10 Netmask: {{ Vlan10Netmask }}
+GE0/0/0.10 Last Usable IP: {{ Vlan10LastUsable }}
+GE0/0/0.10 Broadcast: {{ Vlan10Broadcast }}
