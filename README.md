@@ -34,7 +34,7 @@
 
 ## About ipaddr Filter
 
-- Read the official documentation for more details: [ipaddr filter](https://docs.ansible.com/ansible/2.9/user_guide/playbooks_filter_ipaddr.html)
+- Read the official documentation for more details: [ipaddr filter](https://docs.ansible.com/ansible/2.9/user_guide/playbooks_filters_ipaddr.html)
 
 ## Author Information
 
