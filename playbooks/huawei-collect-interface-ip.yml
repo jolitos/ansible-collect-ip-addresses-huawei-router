@@ -6,7 +6,7 @@
   gather_facts: false
 
   tasks:
-    - name: Collect Interface Data from Huawei Router
+    - name: Collect All interface data from Huawei Router
       ce_facts:
         gather_subset: interfaces
 

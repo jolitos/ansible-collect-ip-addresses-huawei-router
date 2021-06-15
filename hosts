@@ -1,0 +1,5 @@
+[routers_huawei]
+
+Router01 ansible_host=192.168.0.1
+Router02 ansible_host=192.168.0.2
+Router03 ansible_host=192.168.0.3
