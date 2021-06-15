@@ -12,7 +12,9 @@
 
     - name: Get Interfaces Variables with IPADDR filter module
       set_fact:
-        Loopback0: "{{ all_ipv4_addresses.LoopBack0 | ipaddr('address') }}"
+        Loopback0: "{{ all_ipv4_addresses.LoopBack0 }}"
+	Loopback0withFilter: "{{ all_ipv4_addresses.LoopBack0 | ipaddr('address') }}"
+	Loopback0subnet: "{{ all_ipv4_addresses.LoopBack0 | ipaddr('subnet') }}"
         GigabitEthernet0_0_0_10: "{{ all_ipv4_addresses['GigabitEthernet0/0/0.10'] | ipaddr('address') }}"
         GigabitEthernet0_0_0_20: "{{ all_ipv4_addresses['GigabitEthernet0/0/0.20'] | ipaddr('address') }}"
         GigabitEthernet0_0_0_590: "{{ all_ipv4_addresses['GigabitEthernet0/0/0.590'] | ipaddr('address') }}"
